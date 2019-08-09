@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2684cd6234d3a334f85dd80894b6cf32, type: 3}
   m_Name: HappyStateData
   m_EditorClassIdentifier: 
-  happyTime: -34.068928
+  happyTime: -1.6834077
