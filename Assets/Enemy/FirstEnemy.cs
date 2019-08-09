@@ -2,16 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class First : MonoBehaviour {
+[RequireComponent(typeof(Rigidbody))]
+public class FirstEnemy : MonoBehaviour {
     public HappyStateData happyState;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public TransformVar player;
+    public float speed;
+
+    private Rigidbody rigid;
+
+    private void Start() {
+        rigid = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
     void Update() {
-        
+        if (player.Value == null) return;
+
+        if (happyState.isSad) {
+            rigid.AddForce(
+                (player.Value.position - transform.position).normalized * speed,
+                ForceMode.Force
+            );
+        }
     }
 }
