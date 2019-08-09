@@ -10,11 +10,6 @@ public class HappyStateManager : MonoBehaviour {
     }
 
     void Update() {
-        if (happyState.isHappy) {
-            happyState.happyTimeRemaining = Mathf.Max(0, happyState.happyTimeRemaining - Time.deltaTime);
-            happyState.timeSinceSad = 0;
-        } else  {
-            happyState.timeSinceSad += Time.deltaTime;
-        }
+        happyState.happyTime -= Time.deltaTime;
     }
 }

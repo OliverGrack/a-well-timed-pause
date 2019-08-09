@@ -11,6 +11,6 @@ public class HappyMaskScaler : MonoBehaviour {
         
     }
     void Update() {
-        transform.localScale = Mathf.Clamp(happyState.happyTimeRemaining / happyTimeRemainingStart, 0, 1) * maxSize * Vector3.one;
+        transform.localScale = Mathf.Clamp(happyState.happyTime / happyTimeRemainingStart, 0, 1) * maxSize * Vector3.one;
     }
 }
