@@ -50,6 +50,7 @@ public class SpiderEnemy : MonoBehaviour {
         if (player.Value == null || !player.Value.GetComponent<PlayerCombatBehaviour>().alive)
         {
             animator.SetBool("isMoving", false);
+            Debug.Log("Update");
             return;
         }
 
