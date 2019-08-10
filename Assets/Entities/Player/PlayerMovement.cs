@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private PlayerBehaviour playerBehaviour;
+    private PlayerCombatBehaviour playerBehaviour;
     private int movementSpeed = 5;
     // Start is called before the first frame update
     void Start()
     {
-        playerBehaviour = GetComponent<PlayerBehaviour>();
+        playerBehaviour = GetComponent<PlayerCombatBehaviour>();
     }
 
     // Update is called once per frame

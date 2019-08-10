@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBehaviour : MonoBehaviour
+public class PlayerCombatBehaviour : MonoBehaviour
 {
+    public string attackButton = "Fire1";
+    public string changeWeaponKey = "e";
+
     private enum states { Attack, Idle}
     private states state;
     private enum Weapons { Knife, Gun };
@@ -43,21 +46,16 @@ public class PlayerBehaviour : MonoBehaviour
 
     void checkInput()
     {
-        if(Input.GetButtonDown("Fire1") && state == states.Idle)
+        if(Input.GetButtonDown(attackButton) && state == states.Idle)
         {
             state = states.Attack;
             this.attackCounter = attackTime;
             sprite.color = Color.blue;
             PerformAttack();
         }
-        if (Input.GetKeyDown("1"))
+        if (Input.GetKeyDown(changeWeaponKey))
         {
-            equippedWeapon = Weapons.Knife;
-            Debug.Log("Knife");
-        } else if (Input.GetKeyDown("2"))
-        {
-            equippedWeapon = Weapons.Gun;
-            Debug.Log("Gun");
+            equippedWeapon = equippedWeapon == Weapons.Knife ? Weapons.Gun : Weapons.Knife;
         }
     }
     
@@ -108,7 +106,6 @@ public class PlayerBehaviour : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col)
     {
         checkDamageTrigger(col);
-        checkItemTrigger(col);
     }
     void checkDamageTrigger(Collider2D col)
     {
@@ -120,8 +117,4 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
 
-    void checkItemTrigger(Collider2D col)
-    {
-
-    }
 }
