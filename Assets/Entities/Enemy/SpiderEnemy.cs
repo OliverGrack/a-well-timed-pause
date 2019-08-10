@@ -41,7 +41,7 @@ public class SpiderEnemy : MonoBehaviour {
     }
 
     void Update() {
-        if (player.Value == null) return;
+        if (player.Value == null || !player.Value.GetComponent<PlayerBehaviour>().alive) return;
 
         if (happyState.isSad) {
             UpdateLookDirection();
@@ -71,6 +71,7 @@ public class SpiderEnemy : MonoBehaviour {
             float deltaX2 = Mathf.Pow(player.Value.position.x - transform.position.x, 2);
             float deltaY2 = Mathf.Pow(player.Value.position.y - transform.position.y, 2);
             float delta = Mathf.Sqrt(deltaX2 + deltaY2);
+            Debug.Log(delta);
             if (delta - playerSize > attackRange * 0.7) // if out of range, move towards player
             {
                 inAttackRange = false;
@@ -96,6 +97,7 @@ public class SpiderEnemy : MonoBehaviour {
 
     void PerformAttack()
     {
+        Debug.Log("perform Attack");
         sprite.color = Color.magenta;
         MeleeAttack m = Instantiate(meleeAttack).GetComponent<MeleeAttack>();
         m.transform.position = transform.position + transform.up * enemySize;
@@ -108,6 +110,7 @@ public class SpiderEnemy : MonoBehaviour {
     {
         if(attackCounter <= 0 && inAttackRange)
         {
+            Debug.Log("in range");
             state = states.Attack;
             attackCounter = attackTime;
             PerformAttack();

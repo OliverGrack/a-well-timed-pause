@@ -16,8 +16,10 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         if(playerBehaviour.alive)
-        UpdateLookDirection();
-        UpdateMovement();
+        {
+            UpdateLookDirection();
+            UpdateMovement();
+        }
     }
 
     void UpdateLookDirection()
