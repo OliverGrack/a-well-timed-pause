@@ -128,18 +128,18 @@ TextureImporter:
       name: Spider_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 181
-        width: 100
-        height: 75
+        x: 15
+        y: 49
+        width: 93
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9dccf032ccc360b4fb82f1ebbc692fe8
+      spriteID: 32a13bec5153af14a920b687018c0c42
       internalID: -3438905571476058607
       vertices: []
       indices: 
@@ -149,82 +149,19 @@ TextureImporter:
       name: Spider_1
       rect:
         serializedVersion: 2
-        x: 100
-        y: 181
-        width: 100
-        height: 75
+        x: 133
+        y: 51
+        width: 93
+        height: 64
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d150e6203a818c24a8811e30266e66ce
+      spriteID: 3e846bf5bc188084fa55b35302ecbfdf
       internalID: -3439666431560065214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spider_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 106
-        width: 100
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8244ee079adcabe4894d77064f2fd7c6
-      internalID: 594067532846947361
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spider_3
-      rect:
-        serializedVersion: 2
-        x: 100
-        y: 106
-        width: 100
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d23b8105759ed9498713203680d8f4c
-      internalID: -8157787870349292481
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Spider_4
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 31
-        width: 100
-        height: 75
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4c5b5b69c9f35964398c373c00c86094
-      internalID: 8989802596421927958
       vertices: []
       indices: 
       edges: []
