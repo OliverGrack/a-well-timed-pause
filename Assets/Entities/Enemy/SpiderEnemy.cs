@@ -40,12 +40,12 @@ public class SpiderEnemy : MonoBehaviour {
         enemy = GetComponent<Enemy>();
         inAttackRange = false;
         state = states.Move;
-        playerSize = player.Value.gameObject.GetComponent<PlayerBehaviour>().playerSize;
+        playerSize = player.Value.gameObject.GetComponent<PlayerCombatBehaviour>().playerSize;
         meleeAttack.GetComponent<DamageSource>().damageAmount = damage;
     }
 
     void Update() {
-        if (player.Value == null || !player.Value.GetComponent<PlayerBehaviour>().alive) return;
+        if (player.Value == null || !player.Value.GetComponent<PlayerCombatBehaviour>().alive) return;
 
         if (happyState.isSad) {
             UpdateLookDirection();
