@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ObjectivBehavoir : MonoBehaviour {
     public TransformVar player;
     public BoolVar hasObjectiv;
-
+    public CinemachineImpulseSource impulseSource;
+    public float impulseStrength;
 
     private Animator anim;
 
@@ -24,6 +26,7 @@ public class ObjectivBehavoir : MonoBehaviour {
         Debug.Log(collision);
         if (collision.transform == player.Value) {
             hasObjectiv.Value = true;
+            impulseSource.GenerateImpulse(Vector3.one * impulseStrength);
         }
     }
 }
