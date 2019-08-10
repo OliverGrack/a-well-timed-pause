@@ -18,9 +18,13 @@ public class PlayerBehaviour : MonoBehaviour
 
     private SpriteRenderer sprite;
 
+    public int health;
+    public bool alive;
+
     // Start is called before the first frame update
     void Start()
     {
+        alive = true;
         state = states.Idle;
         equippedWeapon = Weapons.Gun;
 
@@ -30,8 +34,11 @@ public class PlayerBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        checkInput();
-        updateAttack();
+        if(alive)
+        {
+            checkInput();
+            UpdateAttack();
+        }
     }
 
     void checkInput()
@@ -41,7 +48,7 @@ public class PlayerBehaviour : MonoBehaviour
             state = states.Attack;
             this.attackCounter = attackTime;
             sprite.color = Color.blue;
-            performAttack();
+            PerformAttack();
         }
         if (Input.GetKeyDown("1"))
         {
@@ -54,24 +61,26 @@ public class PlayerBehaviour : MonoBehaviour
         }
     }
     
-    void performAttack()
+    void PerformAttack()
     {
         if (equippedWeapon == Weapons.Gun)
         {
             Bullet b = Instantiate(bullet).GetComponent<Bullet>();
             b.transform.position = transform.position + transform.up * playerSize;
             b.transform.rotation = transform.rotation;
+            b.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
         }
         else if (equippedWeapon == Weapons.Knife)
         {
             MeleeAttack m = Instantiate(meleeAttack).GetComponent<MeleeAttack>();
             m.transform.position = transform.position + transform.up * playerSize;
             m.transform.rotation = transform.rotation;
+            m.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
         }
 
     }
 
-    void updateAttack()
+    void UpdateAttack()
     {
         if(attackCounter > 0f)
         {
@@ -79,9 +88,30 @@ public class PlayerBehaviour : MonoBehaviour
         }
         if(attackCounter < 0f)
         {
-            this.attackCounter = 0;
-            this.state = states.Idle;
+            attackCounter = 0;
+            state = states.Idle;
             sprite.color = Color.white;
+        }
+    }
+
+    void ApplyDamage(int amount)
+    {
+        health -= amount;
+        if (health <= 0)
+        {
+            health = 0;
+            alive = false;
+            sprite.color = Color.black;
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        DamageSource dmg = col.gameObject.GetComponent<DamageSource>();
+        if (alive && dmg != null && dmg.type != DamageSource.damageTypes.toEnvironment)
+        {
+            ApplyDamage(dmg.damageAmount);
+            Debug.Log("Health: "+health);
         }
     }
 }
