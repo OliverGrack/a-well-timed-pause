@@ -13,7 +13,12 @@ public class SpiderEnemy : MonoBehaviour {
     public float enemySize;
 
 
-    private bool inAttackRange;
+    public float attackRange;   // range of the attacks. 
+                                // The spider considers itself in range, when the 
+                                // distance to the player is smaller than half of that range
+    private bool inAttackRange; // true if distance to Player < attackRange
+    public float inRangeCounter = 0.0f;     // time since the enemy is in range
+    public float inRangeTime;   // time the enemy must be in range to start attacking
 
     private SpriteRenderer sprite;
     // private Rigidbody2D rigid;
@@ -24,7 +29,6 @@ public class SpiderEnemy : MonoBehaviour {
     public float attackTime = 0.3f;
     private float attackCounter = 0.0f;
     public GameObject meleeAttack;
-    public float attackRange;
     private float playerSize;
     public int damage;
 
@@ -71,17 +75,16 @@ public class SpiderEnemy : MonoBehaviour {
             float deltaX2 = Mathf.Pow(player.Value.position.x - transform.position.x, 2);
             float deltaY2 = Mathf.Pow(player.Value.position.y - transform.position.y, 2);
             float delta = Mathf.Sqrt(deltaX2 + deltaY2);
-            Debug.Log(delta);
-            if (delta - playerSize > attackRange * 0.7) // if out of range, move towards player
+            if (delta - playerSize - enemySize > attackRange / 2) // if out of range, move towards player
             {
                 inAttackRange = false;
+                inRangeCounter = 0f;
                 transform.position = transform.position + transform.up * movementSpeed * Time.deltaTime;
             } else // attack Player
             {
                 inAttackRange = true;
             }
         }
-
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -93,7 +96,6 @@ public class SpiderEnemy : MonoBehaviour {
             Debug.Log("Enemy Health: " + enemy.health);
         }
     }
-
 
     void PerformAttack()
     {
@@ -108,7 +110,11 @@ public class SpiderEnemy : MonoBehaviour {
 
     void UpdateAttack()
     {
-        if(attackCounter <= 0 && inAttackRange)
+        if(inAttackRange && attackCounter <= 0)
+        {
+            inRangeCounter += Time.deltaTime;
+        }
+        if(attackCounter <= 0 && inRangeCounter > inRangeTime)
         {
             Debug.Log("in range");
             state = states.Attack;
