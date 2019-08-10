@@ -17,7 +17,7 @@ public class ObjectivManager : MonoBehaviour
         while (!objectivs.All(o => o.Value)) {
             yield return null;
         }
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2.5f);
         sceneTransition.Value.GetComponent<SceneTransitioner>().StartTransitionTo("WonScene");
     }
 }
