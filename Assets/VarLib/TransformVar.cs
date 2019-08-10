@@ -4,6 +4,7 @@ using UnityEngine;
 
 [CreateAssetMenu]
 public class TransformVar : ScriptableObject {
+    [SerializeField]
     private Transform value;
 
     public Transform Value { get => value; set => this.value = value; }
