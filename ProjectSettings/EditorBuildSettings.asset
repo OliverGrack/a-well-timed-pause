@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/OlisDevScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/MainMenu.unity
+    guid: ba42413960ba3a148bb32dd105c2fcda
+  - enabled: 1
+    path: Assets/Scenes/WorldScene.unity
+    guid: f90f756fffbea6b43b81c36e35086f34
+  - enabled: 1
+    path: Assets/Scenes/GameOverScene.unity
+    guid: f6482fcb865caef4c966c640f688a6b6
+  - enabled: 1
+    path: Assets/Scenes/WonScene.unity
+    guid: 5986eb1d885a87e479cae0cad354054b
   m_configObjects: {}

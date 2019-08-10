@@ -11,5 +11,6 @@ public class HappyStateManager : MonoBehaviour {
 
     void Update() {
         happyState.happyTime -= Time.deltaTime;
+        happyState.Update();
     }
 }

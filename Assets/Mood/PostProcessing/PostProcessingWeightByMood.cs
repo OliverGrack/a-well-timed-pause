@@ -12,6 +12,6 @@ public class PostProcessingWeightByMood : MonoBehaviour {
 
 
     private void Update() {
-        volume.weight = MathHelpers.Remap(happyState.happyTime, startTime, maxTime, 0, 1);
+        volume.weight = MathHelpers.Remap(happyState.HappyTimeSmoothed, startTime, maxTime, 0, 1);
     }
 }
