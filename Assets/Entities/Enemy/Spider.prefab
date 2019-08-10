@@ -150,8 +150,10 @@ MonoBehaviour:
   player: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
   movementSpeed: 2
   enemySize: 0.5
+  attackRange: 0.7
+  inRangeCounter: 0
+  inRangeTime: 0.2
   attackTime: 0.6
   meleeAttack: {fileID: 7937237138108121609, guid: 51d5aa781d9a03e45a197beacf16516e,
     type: 3}
-  attackRange: 1
   damage: 20
