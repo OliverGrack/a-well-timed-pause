@@ -6,6 +6,7 @@ public class ObjectivBehavoir : MonoBehaviour {
     public TransformVar player;
     public BoolVar hasObjectiv;
 
+
     private Animator anim;
 
     private void Start() {
@@ -19,9 +20,9 @@ public class ObjectivBehavoir : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other) {
-        Debug.Log(other);
-        if (other.transform == player) {
+    private void OnTriggerEnter2D(Collider2D collision) {
+        Debug.Log(collision);
+        if (collision.transform == player.Value) {
             hasObjectiv.Value = true;
         }
     }
