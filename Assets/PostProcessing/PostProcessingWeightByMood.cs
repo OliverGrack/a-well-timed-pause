@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
+[ExecuteInEditMode]
 public class PostProcessingWeightByMood : MonoBehaviour {
     public PostProcessVolume volume;
     public HappyStateData happyState;
