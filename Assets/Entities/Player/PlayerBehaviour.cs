@@ -107,11 +107,21 @@ public class PlayerBehaviour : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
+        checkDamageTrigger(col);
+        checkItemTrigger(col);
+    }
+    void checkDamageTrigger(Collider2D col)
+    {
         DamageSource dmg = col.gameObject.GetComponent<DamageSource>();
         if (alive && dmg != null && dmg.type != DamageSource.damageTypes.toEnvironment)
         {
             ApplyDamage(dmg.damageAmount);
-            Debug.Log("Health: "+health);
+            Debug.Log("Health: " + health);
         }
+    }
+
+    void checkItemTrigger(Collider2D col)
+    {
+
     }
 }
