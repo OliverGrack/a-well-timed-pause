@@ -37,7 +37,7 @@ public class SpiderEnemy : MonoBehaviour {
     {
         // sprite = GetComponent<SpriteRenderer>();
         // rigid = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
 
         enemy = GetComponent<Enemy>();
         inAttackRange = false;
