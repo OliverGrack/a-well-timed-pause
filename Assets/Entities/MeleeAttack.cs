@@ -7,6 +7,7 @@ public class MeleeAttack : MonoBehaviour
     public float expansionSpeed = 10.0f;
     public float range = 0.5f;
     private Vector3 initPos;
+
     // Start is called before the first frame update
     void Start()
     {
