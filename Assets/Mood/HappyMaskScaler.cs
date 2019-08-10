@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class HappyMaskScaler : MonoBehaviour {
     public HappyStateData happyState;
     public float maxSize = 4;
