@@ -36897,6 +36897,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0f7e0bcbdb1cb44b98c419681f804f3, type: 3}
+--- !u!1 &1770120917 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1770120917, guid: 75987a464e7a7744480eb75870b54ced,
+    type: 3}
+  m_PrefabInstance: {fileID: 8033597241371593632}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1770120921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1770120917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b907a427fdd6904caa72b2497857c25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: {fileID: 11400000, guid: 9cfd41da60b11eb42aa79db5ef155416, type: 2}
+  maxValue: 100
 --- !u!1 &1928745707
 GameObject:
   m_ObjectHideFlags: 0
@@ -37061,7 +37081,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &2028797452
@@ -37426,6 +37446,18 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770120919, guid: 75987a464e7a7744480eb75870b54ced, type: 3}
+      propertyPath: m_Type
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770120919, guid: 75987a464e7a7744480eb75870b54ced, type: 3}
+      propertyPath: m_FillMethod
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1770120919, guid: 75987a464e7a7744480eb75870b54ced, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75987a464e7a7744480eb75870b54ced, type: 3}
