@@ -16,7 +16,7 @@ PrefabInstance:
     - target: {fileID: 9119506475043487243, guid: 9ff7cf2a1e5f46747be47332f722ece7,
         type: 3}
       propertyPath: m_Name
-      value: Family
+      value: Family Variant
       objectReference: {fileID: 0}
     - target: {fileID: 9119506475043487245, guid: 9ff7cf2a1e5f46747be47332f722ece7,
         type: 3}
@@ -99,6 +99,41 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 0.76854414
+      objectReference: {fileID: 0}
+    - target: {fileID: 8371133165490467672, guid: 9ff7cf2a1e5f46747be47332f722ece7,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967918731859413111, guid: 9ff7cf2a1e5f46747be47332f722ece7,
+        type: 3}
+      propertyPath: m_text
+      value: Collected the family portrait
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967918731859413111, guid: 9ff7cf2a1e5f46747be47332f722ece7,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967918731859413111, guid: 9ff7cf2a1e5f46747be47332f722ece7,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 29
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967918731859413111, guid: 9ff7cf2a1e5f46747be47332f722ece7,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967918731859413111, guid: 9ff7cf2a1e5f46747be47332f722ece7,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8967918731859413111, guid: 9ff7cf2a1e5f46747be47332f722ece7,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ff7cf2a1e5f46747be47332f722ece7, type: 3}
