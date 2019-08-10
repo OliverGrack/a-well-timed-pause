@@ -20,7 +20,7 @@ public class SpiderEnemy : MonoBehaviour {
     public float inRangeCounter = 0.0f;     // time since the enemy is in range
     public float inRangeTime;   // time the enemy must be in range to start attacking
 
-    private SpriteRenderer sprite;
+    // private SpriteRenderer sprite;
     // private Rigidbody2D rigid;
     private Enemy enemy;
 
@@ -32,10 +32,12 @@ public class SpiderEnemy : MonoBehaviour {
     private float playerSize;
     public int damage;
 
+    private Animator animator;
     private void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        // sprite = GetComponent<SpriteRenderer>();
         // rigid = GetComponent<Rigidbody2D>();
+        animator = GetComponentInChildren<Animator>();
 
         enemy = GetComponent<Enemy>();
         inAttackRange = false;
@@ -45,7 +47,11 @@ public class SpiderEnemy : MonoBehaviour {
     }
 
     void Update() {
-        if (player.Value == null || !player.Value.GetComponent<PlayerCombatBehaviour>().alive) return;
+        if (player.Value == null || !player.Value.GetComponent<PlayerCombatBehaviour>().alive)
+        {
+            animator.SetBool("isMoving", false);
+            return;
+        }
 
         if (happyState.isSad) {
             UpdateLookDirection();
@@ -80,8 +86,10 @@ public class SpiderEnemy : MonoBehaviour {
                 inAttackRange = false;
                 inRangeCounter = 0f;
                 transform.position = transform.position + transform.up * movementSpeed * Time.deltaTime;
+                animator.SetBool("isMoving", true);
             } else // attack Player
             {
+                animator.SetBool("isMoving", false);
                 inAttackRange = true;
             }
         }
@@ -100,7 +108,7 @@ public class SpiderEnemy : MonoBehaviour {
     void PerformAttack()
     {
         Debug.Log("perform Attack");
-        sprite.color = Color.magenta;
+        // sprite.color = Color.magenta;
         MeleeAttack m = Instantiate(meleeAttack).GetComponent<MeleeAttack>();
         m.transform.position = transform.position + transform.up * enemySize;
         m.transform.rotation = transform.rotation;
@@ -128,7 +136,7 @@ public class SpiderEnemy : MonoBehaviour {
         }
         if (attackCounter < 0f)
         {
-            sprite.color = Color.red;
+            // sprite.color = Color.red;
             attackCounter = 0;
             state = states.Move;
         }
