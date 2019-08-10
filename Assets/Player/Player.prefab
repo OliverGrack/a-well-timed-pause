@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5947619812589929756}
   - component: {fileID: 5947619812589929755}
   - component: {fileID: 6312663917671289240}
+  - component: {fileID: -2633976078091827207}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -111,3 +112,16 @@ MonoBehaviour:
   bullet: {fileID: 3344960370158860732, guid: 61c7bad438afb7147be9e5510e10d540, type: 3}
   meleeAttack: {fileID: 7937237138108121609, guid: 51d5aa781d9a03e45a197beacf16516e,
     type: 3}
+--- !u!114 &-2633976078091827207
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5947619812589929754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b04dfc0509df93c45b52749e6ed98801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  variable: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
