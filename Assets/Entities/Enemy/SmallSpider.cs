@@ -17,8 +17,8 @@ public class SmallSpider : MonoBehaviour
     {
         if(enemy.health <= 0)
         {
-            float x = Random.Range(0.0f, 1.0f);
-            if(x > 0.7)
+            float x = Random.Range(0.0f, 3.0f);
+            if(x >= 2.0f)
             {
                 GameObject i = Instantiate(item);
                 i.transform.position = transform.position;

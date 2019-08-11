@@ -106,7 +106,7 @@ MonoBehaviour:
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
   player: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
   movementSpeed: 4
-  focusRange: 10
+  focusRange: 15
   attackRange: 0.7
   inRangeCounter: 0
   inRangeTime: 0.2
