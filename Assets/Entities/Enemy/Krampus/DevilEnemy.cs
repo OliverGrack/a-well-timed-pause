@@ -33,19 +33,23 @@ public class DevilEnemy : MonoBehaviour {
         while(true) {
             foreach(var e in eyes)
             {
+                yield return waitIfPaused();
                 Instantiate(bullet, e.transform.position, e.transform.rotation);
                 e.SetActive(false);
                 yield return new WaitForSeconds(shootEyeInbetween);
             }
             yield return new WaitForSeconds(afterShootingTimeout);
-            
+
+            yield return waitIfPaused();
             transform.position = deleportPoints[Random.Range(0, deleportPoints.Count)].position;
 
             yield return new WaitForSeconds(afterDeleportTimeout);
+            yield return waitIfPaused();
             foreach (var e in eyes)
             {
                 e.SetActive(true);
             }
+            yield return waitIfPaused();
         }
     }
 
