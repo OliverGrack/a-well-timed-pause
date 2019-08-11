@@ -32,6 +32,23 @@ MonoBehaviour:
   speed: 8
   explo: {fileID: 17937319975494600, guid: b0f56f56ec79cb141a23d22cf175923d, type: 3}
   destroyAfterSec: 3
+--- !u!114 &1031193568374204104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1909213047455802423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bc32eb69b32f5f4d947c71ed43c5105, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100000
+  size: 0
+  hitColor: {r: 0, g: 0, b: 0, a: 0}
+  recolorTime: 0
+  knockBackAmount: 0.2
 --- !u!1001 &1475146409397922064
 PrefabInstance:
   m_ObjectHideFlags: 0
