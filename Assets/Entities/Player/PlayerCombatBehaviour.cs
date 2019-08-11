@@ -161,5 +161,4 @@ public class PlayerCombatBehaviour : MonoBehaviour
             hitSound.Play();
         }
     }
-
 }

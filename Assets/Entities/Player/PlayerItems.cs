@@ -48,7 +48,7 @@ public class PlayerItems : MonoBehaviour
 
     void Pickup()
     {
-        if(itemInRange != null && Input.GetKeyDown(pickupKey))
+        if(itemInRange != null)// && Input.GetKeyDown(pickupKey))
         {
             ItemData pickedUp = itemInRange.item;
             inventory.Add(pickedUp);
@@ -102,6 +102,7 @@ public class PlayerItems : MonoBehaviour
         if(player.alive && item != null)
         {
             item.SetInRange(enter);
+
             if(enter)
             {
                 this.itemInRange = item;
@@ -109,6 +110,7 @@ public class PlayerItems : MonoBehaviour
             {
                 this.itemInRange = null;
             }
+            Pickup();
         }
     }
 

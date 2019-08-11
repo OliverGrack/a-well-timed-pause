@@ -155,6 +155,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba59013662fc89945bfc23e960a62763, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objective: {fileID: 4478791530047951297, guid: c662587d1b9e989489677ff9e74cb2ce,
+    type: 3}
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
   player: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
   focusRange: 10

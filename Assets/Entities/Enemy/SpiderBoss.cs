@@ -25,7 +25,7 @@ public class SpiderBoss : MonoBehaviour
 
             child1.transform.position = transform.position + new Vector3(-1, 1, 0);
             child2.transform.position = transform.position + new Vector3(-1, -1, 0);
-            child3.transform.position = transform.position;
+            child3.transform.position = transform.position + new Vector3(-1, 0, 0); ;
 
             GameObject obj = Instantiate(objective);
             obj.transform.position = transform.position;

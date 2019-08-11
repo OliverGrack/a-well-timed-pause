@@ -4,6 +4,8 @@ using UnityEngine;
 
 [RequireComponent(typeof(Enemy))]
 public class DevilEnemy : MonoBehaviour {
+    public GameObject objective;
+
     public HappyStateData happyState;
     public TransformVar player;
     public float focusRange;
@@ -62,6 +64,8 @@ public class DevilEnemy : MonoBehaviour {
         );
         if (enemy.health <= 0) // Need to keep method for death events (spawn more enemies, or smth)
         {
+            GameObject obj = Instantiate(objective);
+            obj.transform.position = transform.position;
             Destroy(gameObject);
         }
     }
