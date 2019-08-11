@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc32eb69b32f5f4d947c71ed43c5105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 40
   size: 0
   hitColor: {r: 1, g: 0.029075116, b: 0, a: 1}
   recolorTime: 0.15

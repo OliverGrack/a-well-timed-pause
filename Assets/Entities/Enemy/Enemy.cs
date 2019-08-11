@@ -40,4 +40,13 @@ public class Enemy : MonoBehaviour {
             health = 0;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D col) {
+        DamageSource dmg = col.gameObject.GetComponent<DamageSource>();
+        if (dmg != null && dmg.type != DamageSource.damageTypes.toPlayer) {
+            ApplyDamage(dmg.damageAmount);
+            Debug.Log("Enemy Health: " + health);
+        }
+    }
+
 }
