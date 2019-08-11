@@ -27,6 +27,11 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnCollisionEnter(Collision collision) {
+        Destroy(gameObject);
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
         if(dmg.type == DamageSource.damageTypes.toPlayer)
