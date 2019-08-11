@@ -27,9 +27,22 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.GetComponent<PlayerCombatBehaviour>() == null && collision.gameObject.GetComponent<Enemy>() == null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D col)
     {
-        if(dmg.type == DamageSource.damageTypes.toPlayer)
+        if (col.gameObject.GetComponent<PlayerCombatBehaviour>() == null && col.gameObject.GetComponent<Enemy>() == null)
+        {
+            Destroy(gameObject);
+        }
+        if (dmg.type == DamageSource.damageTypes.toPlayer)
         {
             PlayerCombatBehaviour player = col.gameObject.GetComponent<PlayerCombatBehaviour>();
             if (player != null)
