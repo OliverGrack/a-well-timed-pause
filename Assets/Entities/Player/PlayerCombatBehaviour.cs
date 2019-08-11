@@ -9,6 +9,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
     public AudioSource meleeSound;
     public AudioSource gunshotSound;
     public AudioSource hitSound;
+    public TransformVar sceneTransition;
 
     private enum states { Attack, Idle}
     private states state;
@@ -125,8 +126,14 @@ public class PlayerCombatBehaviour : MonoBehaviour
         if (health.Value <= 0)
         {
             health.Value = 0;
+            if (alive) {
+                sceneTransition.Value.GetComponent<SceneTransitioner>().StartTransitionTo("GameOverScene");
+            }
+
             alive = false;
             sprite.color = Color.black;
+
+
         } else {
             StopAllCoroutines();
             StartCoroutine(recolorDamageCoro());
