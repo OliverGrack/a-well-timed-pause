@@ -107,6 +107,7 @@ public class SpiderEnemy : MonoBehaviour {
     {
         // sprite.color = Color.magenta;
         MeleeAttack m = Instantiate(meleeAttack).GetComponent<MeleeAttack>();
+        animator.SetTrigger("Attack");
         m.transform.position = transform.position + transform.up * enemy.size;
         m.transform.rotation = transform.rotation;
         m.range = attackRange;
