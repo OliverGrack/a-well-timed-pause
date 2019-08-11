@@ -85,6 +85,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  size: 0
+  hitColor: {r: 1, g: 0.029075116, b: 0, a: 1}
+  recolorTime: 0.15
 --- !u!114 &2242781851838618818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -100,7 +103,6 @@ MonoBehaviour:
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
   player: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
   movementSpeed: 4
-  enemySize: 0.5
   attackRange: 0.7
   inRangeCounter: 0
   inRangeTime: 0.2
@@ -180,7 +182,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: -3438905571476058607, guid: 397a822f1d3b9d241b84d170f8cde06b,
     type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.5943396, g: 0.36725703, b: 0.36725703, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
