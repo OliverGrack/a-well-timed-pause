@@ -5,13 +5,14 @@ using UnityEngine;
 public class Item : MonoBehaviour
 {
     public bool inRange;
-    public PlayerItems.Items item;
+    public ItemData item;
 
     private SpriteRenderer sprite;
     // Start is called before the first frame update
     void Start()
     {
         sprite = GetComponent<SpriteRenderer>();
+        sprite.sprite = item.uiSprite;
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class Item : MonoBehaviour
             sprite.color = Color.yellow;
         } else
         {
-            sprite.color = Color.cyan;
+            sprite.color = Color.white;
         }
         // Show pick up key ("[F] to pick up") 
     }

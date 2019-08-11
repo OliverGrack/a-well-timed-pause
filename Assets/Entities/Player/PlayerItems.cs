@@ -10,21 +10,19 @@ public class PlayerItems : MonoBehaviour
     public string switchItemKey = "tab";
 
     public HappyStateData happyState;
-    private Items equippedItem;
+    private ItemData equippedItem;
 
     private Item itemInRange;
 
-    private ArrayList inventory;
+    private List<ItemData> inventory;
 
-    public enum Items { Chocolate, Antidepressant, Wristband, Photo, Pizza, None };
     private PlayerCombatBehaviour player;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GetComponent<PlayerCombatBehaviour>();
-        inventory = new ArrayList();
-        equippedItem = Items.None;
+        inventory = new List<ItemData>();
     }
 
     // Update is called once per frame
@@ -47,7 +45,7 @@ public class PlayerItems : MonoBehaviour
     {
         if(itemInRange != null && Input.GetKeyDown(pickupKey))
         {
-            Items pickedUp = itemInRange.item;
+            ItemData pickedUp = itemInRange.item;
             inventory.Add(pickedUp);
             itemInRange.Remove();
             equippedItem = pickedUp;
@@ -63,7 +61,7 @@ public class PlayerItems : MonoBehaviour
             equippedItem = getNextDifferentItem(eqIndex);
             Debug.Log("Switched to: " + equippedItem);
         }
-        else if(Input.GetKeyDown(useItemKey) && equippedItem != Items.None)
+        else if(Input.GetKeyDown(useItemKey) && equippedItem != null)
         {
             Debug.Log("Consumed :" + equippedItem);
             int eqIndex = inventory.IndexOf(equippedItem);
@@ -71,26 +69,18 @@ public class PlayerItems : MonoBehaviour
             inventory.Remove(equippedItem);
             if(inventory.Count == 0)
             {
-                equippedItem = Items.None;
+                equippedItem = null;
             } else
             {
-                equippedItem = eqIndex == 0 ? 0 : (Items)inventory[eqIndex - 1];
+                equippedItem = eqIndex == 0 ? inventory[0] : inventory[eqIndex - 1];
             }
             Debug.Log("Switched to: " + equippedItem);
         }
     }
 
-    void Consume(Items item)
+    void Consume(ItemData item)
     {
-        switch(item)
-        {
-            case Items.Antidepressant:
-                happyState.happyTime = Mathf.Max(happyState.happyTime, 10f);
-                break;
-            case Items.Chocolate:
-                happyState.happyTime = Mathf.Max(happyState.happyTime, 5f);
-                break;
-        }
+        happyState.happyTime = Mathf.Max(happyState.happyTime, item.happyTime);
     }
 
     void checkItem(Collider2D col, bool enter)
@@ -109,11 +99,11 @@ public class PlayerItems : MonoBehaviour
         }
     }
 
-    Items getNextDifferentItem(int eqIndex)
+    ItemData getNextDifferentItem(int eqIndex)
     {
         for (int i = 0; i < inventory.Count; i++)
         {
-            Items newItem = (Items) inventory[(i + eqIndex + 1) % inventory.Count];
+            ItemData newItem = inventory[(i + eqIndex + 1) % inventory.Count];
             if (newItem != equippedItem)
             {
                 return newItem;
