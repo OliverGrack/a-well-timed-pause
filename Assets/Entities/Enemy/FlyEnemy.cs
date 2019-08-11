@@ -11,6 +11,7 @@ public class FlyEnemy : MonoBehaviour
     public float movementSpeed;
 
 
+    public float focusRange; // Maximum distance to the player, until the spider wants to attack him.
     public float attackDistance;   // the distance the fly wants to be in, to start shooting at the player
     private bool inAttackRange; // true if distance to Player < attackRange
     public float inRangeCounter = 0.0f;     // time since the enemy is in range
@@ -44,7 +45,7 @@ public class FlyEnemy : MonoBehaviour
             return;
         }
 
-        if (happyState.isSad)
+        if (happyState.isSad && DistanceToPlayer() < focusRange)
         {
             UpdateLookDirection();
             UpdateMovement();
@@ -67,9 +68,7 @@ public class FlyEnemy : MonoBehaviour
     {
         if (state == states.Move)
         {
-            Vector3 delta = player.Value.position - transform.position;
-            float deltaM = Mathf.Sqrt(delta.sqrMagnitude);
-            if (deltaM > attackDistance * 0.7) // if out of range, move towards player
+            if (DistanceToPlayer() > attackDistance * 0.7) // if out of range, move towards player
             {
                 inAttackRange = false;
                 inRangeCounter = 0f;
@@ -116,5 +115,11 @@ public class FlyEnemy : MonoBehaviour
             attackCounter = 0;
             state = states.Move;
         }
+    }
+
+    private float DistanceToPlayer()
+    {
+        Vector3 delta = new Vector3(player.Value.position.x - transform.position.x, player.Value.position.y - transform.position.y, 0);
+        return Mathf.Sqrt(delta.sqrMagnitude);
     }
 }
