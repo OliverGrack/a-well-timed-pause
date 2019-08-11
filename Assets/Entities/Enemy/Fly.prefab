@@ -155,6 +155,7 @@ MonoBehaviour:
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
   player: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
   movementSpeed: 2
+  focusRange: 20
   attackDistance: 10
   inRangeCounter: 0
   inRangeTime: 0.5
@@ -187,11 +188,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3905682735890350689}
     m_Modifications:
-    - target: {fileID: 2878877569731080532, guid: 8b114a20709d9f748a5cbcfcc746e4d6,
-        type: 3}
-      propertyPath: m_Name
-      value: butterfly
-      objectReference: {fileID: 0}
     - target: {fileID: 1314162438825161996, guid: 8b114a20709d9f748a5cbcfcc746e4d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -261,6 +257,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6986
+      objectReference: {fileID: 0}
+    - target: {fileID: 2878877569731080532, guid: 8b114a20709d9f748a5cbcfcc746e4d6,
+        type: 3}
+      propertyPath: m_Name
+      value: butterfly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b114a20709d9f748a5cbcfcc746e4d6, type: 3}
