@@ -69606,17 +69606,17 @@ PrefabInstance:
     - target: {fileID: 4432690218590569543, guid: a0f7e0bcbdb1cb44b98c419681f804f3,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4432690218590569543, guid: a0f7e0bcbdb1cb44b98c419681f804f3,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4432690218590569543, guid: a0f7e0bcbdb1cb44b98c419681f804f3,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0f7e0bcbdb1cb44b98c419681f804f3, type: 3}
@@ -69700,51 +69700,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2010435969
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2010435970}
-  - component: {fileID: 2010435971}
-  m_Layer: 0
-  m_Name: VarResetter
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2010435970
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010435969}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.8484944, y: 0.00922664, z: -0.2901465}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2010435971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2010435969}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c76b1df35e0bd64ea2efc8be8b0f9b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  vars:
-  - {fileID: 11400000, guid: 9cfd41da60b11eb42aa79db5ef155416, type: 2}
 --- !u!1 &2028797449
 GameObject:
   m_ObjectHideFlags: 0
@@ -70223,4 +70178,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8033597241213238797, guid: 75987a464e7a7744480eb75870b54ced, type: 3}
+    - {fileID: 1770120921, guid: 75987a464e7a7744480eb75870b54ced, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 75987a464e7a7744480eb75870b54ced, type: 3}

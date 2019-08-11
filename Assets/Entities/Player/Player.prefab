@@ -117,7 +117,7 @@ MonoBehaviour:
   bullet: {fileID: 3344960370158860732, guid: 61c7bad438afb7147be9e5510e10d540, type: 3}
   meleeAttack: {fileID: 7937237138108121609, guid: 51d5aa781d9a03e45a197beacf16516e,
     type: 3}
-  health: 100
+  health: {fileID: 11400000, guid: 9cfd41da60b11eb42aa79db5ef155416, type: 2}
   alive: 0
 --- !u!114 &6463272489308664554
 MonoBehaviour:
@@ -135,6 +135,7 @@ MonoBehaviour:
   useItemKey: q
   switchItemKey: tab
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
+  inventory: []
 --- !u!114 &-2633976078091827207
 MonoBehaviour:
   m_ObjectHideFlags: 0
