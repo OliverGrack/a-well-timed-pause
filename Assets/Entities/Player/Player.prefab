@@ -954,6 +954,8 @@ MonoBehaviour:
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
   health: {fileID: 11400000, guid: 9cfd41da60b11eb42aa79db5ef155416, type: 2}
   alive: 0
+  hitColor: {r: 1, g: 0, b: 0, a: 1}
+  hitTime: 0.15
   bullet: {fileID: 3344960370158860732, guid: 61c7bad438afb7147be9e5510e10d540, type: 3}
   bulletSpawnPoint: {fileID: 6685982650661028134}
   meleeAttack: {fileID: 7937237138108121609, guid: 51d5aa781d9a03e45a197beacf16516e,

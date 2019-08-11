@@ -82,16 +82,6 @@ public class FlyEnemy : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col) // move to Enemy Script?
-    {
-        DamageSource dmg = col.gameObject.GetComponent<DamageSource>();
-        if (dmg != null && dmg.type != DamageSource.damageTypes.toPlayer)
-        {
-            enemy.ApplyDamage(dmg.damageAmount);
-            Debug.Log("Enemy Health: " + enemy.health);
-        }
-    }
-
     void PerformAttack()
     {
         Bullet b = Instantiate(bullet).GetComponent<Bullet>();

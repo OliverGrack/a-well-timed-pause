@@ -93,16 +93,6 @@ public class SpiderEnemy : MonoBehaviour {
         }
     }
 
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        DamageSource dmg = col.gameObject.GetComponent<DamageSource>();
-        if (dmg != null && dmg.type != DamageSource.damageTypes.toPlayer)
-        {
-            enemy.ApplyDamage(dmg.damageAmount);
-            Debug.Log("Enemy Health: " + enemy.health);
-        }
-    }
-
     void PerformAttack()
     {
         // sprite.color = Color.magenta;
