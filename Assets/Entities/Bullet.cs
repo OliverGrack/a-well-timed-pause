@@ -6,11 +6,13 @@ public class Bullet : MonoBehaviour
 {
     private const int bulletSpeed = 10;
     private Camera mainCamera;
+    private DamageSource dmg;
 
     // Start is called before the first frame update
     void Start()
     {
         mainCamera = Camera.main;
+        dmg = gameObject.GetComponent<DamageSource>();
     }
 
     // Update is called once per frame
@@ -27,10 +29,22 @@ public class Bullet : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D col)
     {
-        Enemy enemy = col.gameObject.GetComponent<Enemy>();
-        if (enemy != null)
+        if(dmg.type == DamageSource.damageTypes.toPlayer)
         {
-            Destroy(gameObject);
+            PlayerCombatBehaviour player = col.gameObject.GetComponent<PlayerCombatBehaviour>();
+            if (player != null)
+            {
+                Destroy(gameObject);
+            }
+
+        }
+        if (dmg.type == DamageSource.damageTypes.toEnvironment)
+        {
+            Enemy enemy = col.gameObject.GetComponent<Enemy>();
+            if (enemy != null)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }
