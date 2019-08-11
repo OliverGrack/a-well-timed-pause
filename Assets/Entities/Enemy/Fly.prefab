@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3905682735890350693}
   - component: {fileID: 3905682735890350690}
   - component: {fileID: 3905682735890350691}
+  - component: {fileID: -8895660964104840233}
   - component: {fileID: 1703703523823343446}
   m_Layer: 0
   m_Name: Fly
@@ -136,7 +137,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bc32eb69b32f5f4d947c71ed43c5105, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 50
+  health: 30
   size: 0.2
   hitColor: {r: 1, g: 0, b: 0, a: 1}
   recolorTime: 0.15
@@ -163,6 +164,20 @@ MonoBehaviour:
   attackTime: 0.8
   bullet: {fileID: 1010537984228838695, guid: 016ed21af7f122f478d2ea16fd7d0d3d, type: 3}
   damage: 10
+  bulletSize: 1.5
+--- !u!114 &-8895660964104840233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3905682735890350702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee2d4146396e0bb4e9172928a1b3db35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 0}
 --- !u!95 &1703703523823343446
 Animator:
   serializedVersion: 3
@@ -189,6 +204,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3905682735890350689}
     m_Modifications:
+    - target: {fileID: 2878877569731080532, guid: 8b114a20709d9f748a5cbcfcc746e4d6,
+        type: 3}
+      propertyPath: m_Name
+      value: butterfly
+      objectReference: {fileID: 0}
     - target: {fileID: 1314162438825161996, guid: 8b114a20709d9f748a5cbcfcc746e4d6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -258,11 +278,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.6986
-      objectReference: {fileID: 0}
-    - target: {fileID: 2878877569731080532, guid: 8b114a20709d9f748a5cbcfcc746e4d6,
-        type: 3}
-      propertyPath: m_Name
-      value: butterfly
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b114a20709d9f748a5cbcfcc746e4d6, type: 3}

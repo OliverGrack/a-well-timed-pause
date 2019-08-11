@@ -87,7 +87,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 40
-  size: 0
+  size: 0.3
   hitColor: {r: 1, g: 0.029075116, b: 0, a: 1}
   recolorTime: 0.15
   knockBackAmount: 1
