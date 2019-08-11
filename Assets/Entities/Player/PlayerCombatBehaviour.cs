@@ -16,23 +16,34 @@ public class PlayerCombatBehaviour : MonoBehaviour
     public float attackTime = 0.5f;
     private float attackCounter = 0.0f;
 
-    public GameObject bullet;
-    public GameObject meleeAttack;
-
-    private SpriteRenderer sprite;
-
+    public HappyStateData happyState;
     public IntVar health;
     public bool alive;
+    private SpriteRenderer sprite;
+
+    [Header("Attack Spawning")]
+    public GameObject bullet;
+    public Transform bulletSpawnPoint;
+    public GameObject meleeAttack;
+
+
+    [Header("Weapon display")]
+    public GameObject knife;
+    public GameObject gun;
+
+
+    private Animator anim;
 
     // Start is called before the first frame update
     void Start()
     {
         alive = true;
         state = states.Idle;
-        equippedWeapon = Weapons.Gun;
+        changeWeapon(Weapons.Gun);
 
         sprite = GetComponent<SpriteRenderer>();
         health.Reset();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -53,24 +64,33 @@ public class PlayerCombatBehaviour : MonoBehaviour
             this.attackCounter = attackTime;
             PerformAttack();
         }
-        if (Input.GetKeyDown(changeWeaponKey))
-        {
-            equippedWeapon = equippedWeapon == Weapons.Knife ? Weapons.Gun : Weapons.Knife;
+        if (Input.GetKeyDown(changeWeaponKey)) {
+            changeWeapon(equippedWeapon == Weapons.Knife ? Weapons.Gun : Weapons.Knife);
         }
+    }
+
+    private void changeWeapon(Weapons w) {
+        equippedWeapon = w;
+        knife.SetActive(equippedWeapon == Weapons.Knife);
+        gun.SetActive(equippedWeapon == Weapons.Gun);
     }
     
     void PerformAttack()
     {
+        if (happyState.isHappy) {
+            return;
+        }
+
         if (equippedWeapon == Weapons.Gun)
         {
-            Bullet b = Instantiate(bullet).GetComponent<Bullet>();
-            b.transform.position = transform.position + transform.up * playerSize;
-            b.transform.rotation = transform.rotation;
+            Bullet b = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation).GetComponent<Bullet>();
             b.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
+            anim.SetTrigger("Gun");
         }
         else if (equippedWeapon == Weapons.Knife)
         {
             MeleeAttack m = Instantiate(meleeAttack).GetComponent<MeleeAttack>();
+            anim.SetTrigger("Knife");
             m.transform.position = transform.position + transform.up * playerSize;
             m.transform.rotation = transform.rotation;
             m.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
