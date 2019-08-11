@@ -21,7 +21,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
 
     private SpriteRenderer sprite;
 
-    public int health;
+    public IntVar health;
     public bool alive;
 
     // Start is called before the first frame update
@@ -32,6 +32,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
         equippedWeapon = Weapons.Gun;
 
         sprite = GetComponent<SpriteRenderer>();
+        health.Reset();
     }
 
     // Update is called once per frame
@@ -94,10 +95,10 @@ public class PlayerCombatBehaviour : MonoBehaviour
 
     void ApplyDamage(int amount)
     {
-        health -= amount;
-        if (health <= 0)
+        health.Value -= amount;
+        if (health.Value <= 0)
         {
-            health = 0;
+            health.Value = 0;
             alive = false;
             sprite.color = Color.black;
         }
@@ -113,7 +114,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
         if (alive && dmg != null && dmg.type != DamageSource.damageTypes.toEnvironment)
         {
             ApplyDamage(dmg.damageAmount);
-            Debug.Log("Health: " + health);
+            Debug.Log("Health: " + health.Value);
         }
     }
 
