@@ -949,6 +949,7 @@ MonoBehaviour:
   meleeSound: {fileID: 1606958839}
   gunshotSound: {fileID: 9098083843804672652}
   hitSound: {fileID: 6466071507542422671}
+  sceneTransition: {fileID: 11400000, guid: 78e91566a14f4cd449cfe36581201d25, type: 2}
   playerSize: 0.5
   attackTime: 0.5
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
