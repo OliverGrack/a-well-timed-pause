@@ -50,6 +50,9 @@ TagManager:
   - name: Forground
     uniqueID: 3565345107
     locked: 0
+  - name: UI
+    uniqueID: 2597959505
+    locked: 0
   - name: ForgroundFront
     uniqueID: 1464087205
     locked: 0
