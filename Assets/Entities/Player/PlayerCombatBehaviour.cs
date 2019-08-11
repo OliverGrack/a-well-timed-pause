@@ -16,7 +16,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
     public float attackTime = 0.5f;
     private float attackCounter = 0.0f;
 
-
+    public HappyStateData happyState;
     public IntVar health;
     public bool alive;
     private SpriteRenderer sprite;
@@ -39,7 +39,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
     {
         alive = true;
         state = states.Idle;
-        equippedWeapon = Weapons.Gun;
+        changeWeapon(Weapons.Gun);
 
         sprite = GetComponent<SpriteRenderer>();
         health.Reset();
@@ -65,18 +65,27 @@ public class PlayerCombatBehaviour : MonoBehaviour
             PerformAttack();
         }
         if (Input.GetKeyDown(changeWeaponKey)) {
-            equippedWeapon = equippedWeapon == Weapons.Knife ? Weapons.Gun : Weapons.Knife;
-            knife.SetActive(equippedWeapon == Weapons.Knife);
-            gun.SetActive(equippedWeapon == Weapons.Gun);
+            changeWeapon(equippedWeapon == Weapons.Knife ? Weapons.Gun : Weapons.Knife);
         }
+    }
+
+    private void changeWeapon(Weapons w) {
+        equippedWeapon = w;
+        knife.SetActive(equippedWeapon == Weapons.Knife);
+        gun.SetActive(equippedWeapon == Weapons.Gun);
     }
     
     void PerformAttack()
     {
+        if (happyState.isHappy) {
+            return;
+        }
+
         if (equippedWeapon == Weapons.Gun)
         {
             Bullet b = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation).GetComponent<Bullet>();
             b.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
+            anim.SetTrigger("Gun");
         }
         else if (equippedWeapon == Weapons.Knife)
         {
