@@ -6,7 +6,6 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour {
     public TransformVar player;
     private TMP_Text text;
-    private Player
 
 
 
