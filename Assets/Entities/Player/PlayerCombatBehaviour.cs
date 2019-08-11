@@ -6,6 +6,9 @@ public class PlayerCombatBehaviour : MonoBehaviour
 {
     public string attackButton = "Fire1";
     public string changeWeaponKey = "e";
+    public AudioSource meleeSound;
+    public AudioSource gunshotSound;
+    public AudioSource hitSound;
 
     private enum states { Attack, Idle}
     private states state;
@@ -89,6 +92,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
             Bullet b = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation).GetComponent<Bullet>();
             b.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
             anim.SetTrigger("Gun");
+            gunshotSound.Play();
         }
         else if (equippedWeapon == Weapons.Knife)
         {
@@ -97,6 +101,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
             m.transform.position = transform.position + transform.up * playerSize;
             m.transform.rotation = transform.rotation;
             m.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
+            meleeSound.Play();
         }
 
     }
@@ -146,6 +151,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
         {
             ApplyDamage(dmg.damageAmount);
             Debug.Log("Health: " + health.Value);
+            hitSound.Play();
         }
     }
 
