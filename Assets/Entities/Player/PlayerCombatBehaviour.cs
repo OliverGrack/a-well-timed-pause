@@ -16,13 +16,21 @@ public class PlayerCombatBehaviour : MonoBehaviour
     public float attackTime = 0.5f;
     private float attackCounter = 0.0f;
 
-    public GameObject bullet;
-    public GameObject meleeAttack;
-
-    private SpriteRenderer sprite;
 
     public IntVar health;
     public bool alive;
+    private SpriteRenderer sprite;
+
+    [Header("Attack Spawning")]
+    public GameObject bullet;
+    public Transform bulletSpawnPoint;
+    public GameObject meleeAttack;
+
+
+    [Header("Weapon display")]
+    public GameObject knife;
+    public GameObject gun;
+
 
     private Animator anim;
 
@@ -56,9 +64,10 @@ public class PlayerCombatBehaviour : MonoBehaviour
             this.attackCounter = attackTime;
             PerformAttack();
         }
-        if (Input.GetKeyDown(changeWeaponKey))
-        {
+        if (Input.GetKeyDown(changeWeaponKey)) {
             equippedWeapon = equippedWeapon == Weapons.Knife ? Weapons.Gun : Weapons.Knife;
+            knife.SetActive(equippedWeapon == Weapons.Knife);
+            gun.SetActive(equippedWeapon == Weapons.Gun);
         }
     }
     
@@ -66,9 +75,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
     {
         if (equippedWeapon == Weapons.Gun)
         {
-            Bullet b = Instantiate(bullet).GetComponent<Bullet>();
-            b.transform.position = transform.position + transform.up * playerSize;
-            b.transform.rotation = transform.rotation;
+            Bullet b = Instantiate(bullet, bulletSpawnPoint.position, transform.rotation).GetComponent<Bullet>();
             b.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
         }
         else if (equippedWeapon == Weapons.Knife)

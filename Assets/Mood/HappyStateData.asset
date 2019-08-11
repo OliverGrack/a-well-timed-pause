@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2684cd6234d3a334f85dd80894b6cf32, type: 3}
   m_Name: HappyStateData
   m_EditorClassIdentifier: 
-  happyTime: -28.749252
-  happyTimeSmoothed: -83.7
+  happyTime: 0
+  happyTimeSmoothed: 0
   smoothTime: 0.25
