@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
     public Color hitColor;
     public float recolorTime;
 
+    public float knockBackAmount = 0.2f;
+
     private SpriteRenderer[] renderers;
     private Color[] oriColors;
 
@@ -46,7 +48,11 @@ public class Enemy : MonoBehaviour {
         if (dmg != null && dmg.type != DamageSource.damageTypes.toPlayer) {
             ApplyDamage(dmg.damageAmount);
             Debug.Log("Enemy Health: " + health);
-        }
-    }
 
+            // knockback
+            var delta = (transform.position - col.transform.position).normalized * knockBackAmount * (dmg.damageAmount / 10);
+            transform.position += delta;
+        }
+
+    }
 }
