@@ -9,6 +9,11 @@ public class PlayerItems : MonoBehaviour
     public string useItemKey = "q";
     public string switchItemKey = "tab";
 
+    public AudioSource consume1;
+    public AudioSource consume2;
+    public AudioSource consume3;
+    public AudioSource pickupSound;
+
     public HappyStateData happyState;
     private ItemData equippedItem;
 
@@ -49,7 +54,7 @@ public class PlayerItems : MonoBehaviour
             inventory.Add(pickedUp);
             itemInRange.Remove();
             equippedItem = pickedUp;
-            Debug.Log("Picked up: " + pickedUp);
+            pickupSound.Play();
         }
     }
 
@@ -59,11 +64,9 @@ public class PlayerItems : MonoBehaviour
         {
             int eqIndex = inventory.IndexOf(equippedItem);
             equippedItem = getNextDifferentItem(eqIndex);
-            Debug.Log("Switched to: " + equippedItem);
         }
         else if(Input.GetKeyDown(useItemKey) && equippedItem != null)
         {
-            Debug.Log("Consumed :" + equippedItem);
             int eqIndex = inventory.IndexOf(equippedItem);
             Consume(equippedItem);
             inventory.Remove(equippedItem);
@@ -74,13 +77,23 @@ public class PlayerItems : MonoBehaviour
             {
                 equippedItem = eqIndex == 0 ? inventory[0] : inventory[eqIndex - 1];
             }
-            Debug.Log("Switched to: " + equippedItem);
         }
     }
 
     void Consume(ItemData item)
     {
         happyState.happyTime = Mathf.Max(happyState.happyTime, item.happyTime);
+        float x = Random.Range(0, 3);
+        if(x<1)
+        {
+            consume1.Play();
+        } else if(x<2)
+        {
+            consume2.Play();
+        } else
+        {
+            consume3.Play();
+        }
     }
 
     void checkItem(Collider2D col, bool enter)

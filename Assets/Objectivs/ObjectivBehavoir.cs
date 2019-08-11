@@ -8,6 +8,7 @@ public class ObjectivBehavoir : MonoBehaviour {
     public BoolVar hasObjectiv;
     public CinemachineImpulseSource impulseSource;
     public float impulseStrength;
+    public AudioSource objectiveSound;
 
     private Animator anim;
 
@@ -27,6 +28,7 @@ public class ObjectivBehavoir : MonoBehaviour {
         if (collision.transform == player.Value) {
             hasObjectiv.Value = true;
             impulseSource.GenerateImpulse(Vector3.one * impulseStrength);
+            objectiveSound.Play();
         }
     }
 }
