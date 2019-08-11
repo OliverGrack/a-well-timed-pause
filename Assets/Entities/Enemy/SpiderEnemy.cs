@@ -11,7 +11,7 @@ public class SpiderEnemy : MonoBehaviour {
     public TransformVar player;
     public float movementSpeed;
 
-
+    public float focusRange; // Maximum distance to the player, until the spider wants to attack him.
     public float attackRange;   // range of the attacks. 
                                 // The spider considers itself in range, when the 
                                 // distance to the player is smaller than half of that range
@@ -52,7 +52,7 @@ public class SpiderEnemy : MonoBehaviour {
             return;
         }
 
-        if (happyState.isSad) {
+        if (happyState.isSad && DistanceToPlayer() < focusRange ) {
             UpdateLookDirection();
             UpdateMovement();
             UpdateAttack();
@@ -77,9 +77,7 @@ public class SpiderEnemy : MonoBehaviour {
     {
         if(state == states.Move)
         {
-            Vector3 delta = new Vector3(player.Value.position.x - transform.position.x, player.Value.position.y - transform.position.y, 0);
-            float deltaM = Mathf.Sqrt(delta.sqrMagnitude);
-            if (deltaM - playerSize - enemy.size > attackRange / 2) // if out of range, move towards player
+            if (DistanceToPlayer() - playerSize - enemy.size > attackRange / 2) // if out of range, move towards player
             {
                 inAttackRange = false;
                 inRangeCounter = 0f;
@@ -90,16 +88,6 @@ public class SpiderEnemy : MonoBehaviour {
                 animator.SetBool("isMoving", false);
                 inAttackRange = true;
             }
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D col)
-    {
-        DamageSource dmg = col.gameObject.GetComponent<DamageSource>();
-        if (dmg != null && dmg.type != DamageSource.damageTypes.toPlayer)
-        {
-            enemy.ApplyDamage(dmg.damageAmount);
-            Debug.Log("Enemy Health: " + enemy.health);
         }
     }
 
@@ -138,5 +126,11 @@ public class SpiderEnemy : MonoBehaviour {
             attackCounter = 0;
             state = states.Move;
         }
+    }
+
+    private float DistanceToPlayer()
+    {
+        Vector3 delta = new Vector3(player.Value.position.x - transform.position.x, player.Value.position.y - transform.position.y, 0);
+        return Mathf.Sqrt(delta.sqrMagnitude);
     }
 }

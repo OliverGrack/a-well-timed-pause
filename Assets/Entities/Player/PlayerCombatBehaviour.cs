@@ -19,9 +19,12 @@ public class PlayerCombatBehaviour : MonoBehaviour
     public float attackTime = 0.5f;
     private float attackCounter = 0.0f;
 
+    [Header("Health")]
     public HappyStateData happyState;
     public IntVar health;
     public bool alive;
+    public Color hitColor;
+    public float hitTime;
     private SpriteRenderer sprite;
 
     [Header("Attack Spawning")]
@@ -124,7 +127,17 @@ public class PlayerCombatBehaviour : MonoBehaviour
             health.Value = 0;
             alive = false;
             sprite.color = Color.black;
+        } else {
+            StopAllCoroutines();
+            StartCoroutine(recolorDamageCoro());
         }
+    }
+
+    IEnumerator recolorDamageCoro() {
+        Color prevColor = sprite.color;
+        sprite.color = hitColor;
+        yield return new WaitForSeconds(hitTime);
+        sprite.color = Color.white;
     }
 
     void OnTriggerEnter2D(Collider2D col)
