@@ -28,6 +28,7 @@ public class FlyEnemy : MonoBehaviour
     private float attackCounter = 0.0f;
     public GameObject bullet;
     public int damage;
+    public float bulletSize;
 
     private void Start()
     {
@@ -90,6 +91,8 @@ public class FlyEnemy : MonoBehaviour
         b.transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
 
         b.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toPlayer;
+        b.gameObject.GetComponent<DamageSource>().damageAmount = damage;
+        b.gameObject.transform.localScale = new Vector3(bulletSize, bulletSize, 1);
     }
 
     void UpdateAttack()

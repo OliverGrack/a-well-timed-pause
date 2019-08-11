@@ -56,11 +56,9 @@ public class SpiderEnemy : MonoBehaviour {
             UpdateLookDirection();
             UpdateMovement();
             UpdateAttack();
-        }
-
-        if (enemy.health <= 0) // Need to keep method for death events (spawn more enemies, or smth)
+        } else
         {
-            Destroy(gameObject);
+            animator.SetBool("isMoving", false);
         }
     }
 
@@ -100,6 +98,7 @@ public class SpiderEnemy : MonoBehaviour {
         m.transform.rotation = transform.rotation;
         m.range = attackRange;
         m.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toPlayer;
+        m.gameObject.GetComponent<DamageSource>().damageAmount = damage;
     }
 
     void UpdateAttack()
