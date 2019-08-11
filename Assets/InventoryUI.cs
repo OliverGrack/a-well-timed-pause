@@ -6,7 +6,7 @@ using UnityEngine;
 public class InventoryUI : MonoBehaviour {
     public TransformVar player;
     private TMP_Text text;
-    private Player
+    private PlayerItems playerItems;
 
 
 
@@ -16,8 +16,11 @@ public class InventoryUI : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
+    void Update() {
+        if (playerItems == null) {
+            playerItems = player.Value.GetComponent<PlayerItems>();
+        }
+
+        text.text = playerItems.inventory.Count.ToString();
     }
 }

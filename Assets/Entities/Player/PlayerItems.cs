@@ -14,7 +14,7 @@ public class PlayerItems : MonoBehaviour
 
     private Item itemInRange;
 
-    private List<ItemData> inventory;
+    public List<ItemData> inventory;
 
     private PlayerCombatBehaviour player;
 
