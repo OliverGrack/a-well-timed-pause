@@ -89,6 +89,7 @@ MonoBehaviour:
   size: 0
   hitColor: {r: 1, g: 0.029075116, b: 0, a: 1}
   recolorTime: 0.15
+  knockBackAmount: 1
 --- !u!114 &2242781851838618818
 MonoBehaviour:
   m_ObjectHideFlags: 0
