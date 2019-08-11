@@ -6,33 +6,53 @@ using UnityEngine;
 public class DevilEnemy : MonoBehaviour {
     public HappyStateData happyState;
     public TransformVar player;
-    public float movementSpeed;
+    public float focusRange;
 
+    public List<Transform> deleportPoints;
 
-    public float focusRange; // Maximum distance to the player, until the spider wants to attack him.
-    public float attackDistance;   // the distance the fly wants to be in, to start shooting at the player
-    private bool inAttackRange; // true if distance to Player < attackRange
-    public float inRangeTime;   // time the enemy must be in range to start attacking
-    private Vector3 facing;
-
-    // private SpriteRenderer sprite;
-    // private Rigidbody2D rigid;
     private Enemy enemy;
-
-    private enum states { Attack, Move }
-    private states state;
-    public float attackTime = 0.3f;
-    private float attackCounter = 0.0f;
+    
     public GameObject bullet;
-    public int damage;
+    public List<GameObject> eyes;
 
     public bool isPaused = true;
 
-    private void Start() {
+    public float shootEyeInbetween = 0.3f;
+    public float afterShootingTimeout = 0.6f;
+    public float afterDeleportTimeout = 0.2f;
+
+    private IEnumerator Start() {
         enemy = GetComponent<Enemy>();
-        inAttackRange = false;
-        state = states.Move;
-        facing = new Vector3(0, 1, 0);
+
+        yield return null;
+        yield return waitIfPaused();
+
+
+        while(true) {
+            foreach(var e in eyes)
+            {
+                Instantiate(bullet, e.transform.position, e.transform.rotation);
+                e.SetActive(false);
+                yield return new WaitForSeconds(shootEyeInbetween);
+            }
+            yield return new WaitForSeconds(afterShootingTimeout);
+            
+            transform.position = deleportPoints[Random.Range(0, deleportPoints.Count)].position;
+
+            yield return new WaitForSeconds(afterDeleportTimeout);
+            foreach (var e in eyes)
+            {
+                e.SetActive(true);
+            }
+        }
+    }
+
+    IEnumerator waitIfPaused()
+    {
+        while(isPaused)
+        {
+            yield return null;
+        }
     }
 
     void Update() {

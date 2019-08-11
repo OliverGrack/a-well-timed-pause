@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2360341602425303289}
   - component: {fileID: 2360341602425303288}
   - component: {fileID: 2360341602425303291}
+  - component: {fileID: 1923457163}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -56,7 +57,7 @@ MonoBehaviour:
   m_Follow: {fileID: 0}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 7.06
+    OrthographicSize: 8.82
     NearClipPlane: 0.04
     FarClipPlane: 5000
     Dutch: 0
@@ -84,6 +85,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
+--- !u!114 &1923457163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2360341602425303290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00b2d199b96b516448144ab30fb26aed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ChannelMask: 1
+  m_Gain: 1
+  m_Use2DDistance: 1
 --- !u!1 &2360341602508787622
 GameObject:
   m_ObjectHideFlags: 0
@@ -191,7 +207,7 @@ Camera:
   far clip plane: 5000
   field of view: 40
   orthographic: 1
-  orthographic size: 7.06
+  orthographic size: 8.82
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -527,37 +543,37 @@ PrefabInstance:
     - target: {fileID: 4432690219504115221, guid: 864de5b6f0f5a83478913e8043cc7ed2,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 2.6412878
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4432690219504115221, guid: 864de5b6f0f5a83478913e8043cc7ed2,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 2.6412878
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4432690219504115221, guid: 864de5b6f0f5a83478913e8043cc7ed2,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 2.6412878
-      objectReference: {fileID: 0}
-    - target: {fileID: 4432690217713985382, guid: 864de5b6f0f5a83478913e8043cc7ed2,
-        type: 3}
-      propertyPath: weight
-      value: 0.92768836
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4432690219183827492, guid: 864de5b6f0f5a83478913e8043cc7ed2,
         type: 3}
       propertyPath: weight
-      value: -0.061320025
+      value: 0.11080083
+      objectReference: {fileID: 0}
+    - target: {fileID: 4432690219543481337, guid: 864de5b6f0f5a83478913e8043cc7ed2,
+        type: 3}
+      propertyPath: weight
+      value: -1.0526079
       objectReference: {fileID: 0}
     - target: {fileID: 4432690219504115216, guid: 864de5b6f0f5a83478913e8043cc7ed2,
         type: 3}
       propertyPath: maxSize
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 4432690219543481337, guid: 864de5b6f0f5a83478913e8043cc7ed2,
+    - target: {fileID: 4432690217713985382, guid: 864de5b6f0f5a83478913e8043cc7ed2,
         type: 3}
       propertyPath: weight
-      value: 0.5825403
+      value: 4.561351
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 864de5b6f0f5a83478913e8043cc7ed2, type: 3}
