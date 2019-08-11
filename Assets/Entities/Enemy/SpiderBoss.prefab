@@ -87,10 +87,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 120
-  size: 0
+  size: 1
   hitColor: {r: 1, g: 0.029075116, b: 0, a: 1}
   recolorTime: 0.15
-  knockBackAmount: 1
+  knockBackAmount: 0.5
 --- !u!114 &1321510009120067410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,6 +126,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ccae22061ec5a64783e3ff28ea18f34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smallSpider: {fileID: 2242781851838618816, guid: b5927d73107b0ff4f8fe80c2a0286782,
+    type: 3}
+  objective: {fileID: 5557995106044389964, guid: 7fe9a5c9ea86f4f4abf6ce4969d9fdfb,
+    type: 3}
 --- !u!1 &4431818249696438633
 GameObject:
   m_ObjectHideFlags: 0

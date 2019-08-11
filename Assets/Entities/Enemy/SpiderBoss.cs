@@ -24,10 +24,12 @@ public class SpiderBoss : MonoBehaviour
             GameObject child2 = Instantiate(smallSpider);
             GameObject child3 = Instantiate(smallSpider);
 
-            child1.transform.position = child1.transform.position + new Vector3(1, 0, 0);
+            child1.transform.position = transform.position + new Vector3(-1, 1, 0);
+            child2.transform.position = transform.position + new Vector3(-1, -1, 0);
+            child3.transform.position = transform.position;
 
-
-            Instantiate(objective);
+            GameObject obj = Instantiate(objective);
+            obj.transform.position = transform.position;
             Destroy(gameObject);
         }
     }

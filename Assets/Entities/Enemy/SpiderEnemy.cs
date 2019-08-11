@@ -98,6 +98,7 @@ public class SpiderEnemy : MonoBehaviour {
         m.transform.rotation = transform.rotation;
         m.range = attackRange;
         m.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toPlayer;
+        m.gameObject.GetComponent<DamageSource>().damageAmount = damage;
     }
 
     void UpdateAttack()
