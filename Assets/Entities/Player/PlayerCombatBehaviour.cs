@@ -51,7 +51,6 @@ public class PlayerCombatBehaviour : MonoBehaviour
         {
             state = states.Attack;
             this.attackCounter = attackTime;
-            sprite.color = Color.blue;
             PerformAttack();
         }
         if (Input.GetKeyDown(changeWeaponKey))
@@ -89,7 +88,6 @@ public class PlayerCombatBehaviour : MonoBehaviour
         {
             attackCounter = 0;
             state = states.Idle;
-            sprite.color = Color.white;
         }
     }
 
