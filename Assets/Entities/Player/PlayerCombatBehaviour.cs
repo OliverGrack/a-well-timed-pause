@@ -24,6 +24,8 @@ public class PlayerCombatBehaviour : MonoBehaviour
     public IntVar health;
     public bool alive;
 
+    private Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +35,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
 
         sprite = GetComponent<SpriteRenderer>();
         health.Reset();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -72,6 +75,7 @@ public class PlayerCombatBehaviour : MonoBehaviour
         else if (equippedWeapon == Weapons.Knife)
         {
             MeleeAttack m = Instantiate(meleeAttack).GetComponent<MeleeAttack>();
+            anim.SetTrigger("Knife");
             m.transform.position = transform.position + transform.up * playerSize;
             m.transform.rotation = transform.rotation;
             m.gameObject.GetComponent<DamageSource>().type = DamageSource.damageTypes.toEnvironment;
