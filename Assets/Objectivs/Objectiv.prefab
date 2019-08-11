@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: -4494667130959254443}
   - component: {fileID: 3261444143078153393}
   - component: {fileID: 7985218800969592807}
+  - component: {fileID: 737165812273637711}
   m_Layer: 0
   m_Name: Objectiv
   m_TagString: Untagged
@@ -403,6 +404,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
   hasObjectiv: {fileID: 0}
+  impulseSource: {fileID: 737165812273637711}
+  impulseStrength: 0.7
 --- !u!95 &3261444143078153393
 Animator:
   serializedVersion: 3
@@ -436,7 +439,66 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 11400000, guid: b841d86bd20ed9847a2837eab95d070a, type: 2}
   happyState: {fileID: 11400000, guid: e3fbef2c0a07b8d4187a48be6f23b204, type: 2}
-  happyTime: 3
+  happyTime: 6
+--- !u!114 &737165812273637711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9119506475043487243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ImpulseDefinition:
+    m_ImpulseChannel: 1
+    m_RawSignal: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+    m_AmplitudeGain: 1
+    m_FrequencyGain: 0.77
+    m_RepeatMode: 0
+    m_Randomize: 1
+    m_TimeEnvelope:
+      m_AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_DecayShape:
+        serializedVersion: 2
+        m_Curve:
+        - serializedVersion: 3
+          time: 0
+          value: 1
+          inSlope: 0.2801012
+          outSlope: 0.2801012
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0
+          outWeight: 0.40416667
+        - serializedVersion: 3
+          time: 1
+          value: 0
+          inSlope: 0.05390836
+          outSlope: 0.05390836
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.525
+          outWeight: 0
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      m_AttackTime: 0
+      m_SustainTime: 0.15
+      m_DecayTime: 0
+      m_ScaleWithImpact: 1
+      m_HoldForever: 0
+    m_ImpactRadius: 100
+    m_DirectionMode: 0
+    m_DissipationMode: 2
+    m_DissipationDistance: 1000
 --- !u!1 &9119506475316436944
 GameObject:
   m_ObjectHideFlags: 0

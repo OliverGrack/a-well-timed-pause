@@ -9,9 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2684cd6234d3a334f85dd80894b6cf32, type: 3}
-  m_Name: HappyStateData
+  m_Script: {fileID: 11500000, guid: 00a1d084afa6e674e83b13ff1d24f002, type: 3}
+  m_Name: TransitionTransform
   m_EditorClassIdentifier: 
-  happyTime: 0.08804269
-  happyTimeSmoothed: 0.33016098
-  smoothTime: 0.25
+  value: {fileID: 0}
