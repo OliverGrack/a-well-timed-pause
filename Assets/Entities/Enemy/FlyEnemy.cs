@@ -111,7 +111,6 @@ public class FlyEnemy : MonoBehaviour
         }
         if (attackCounter <= 0 && inRangeCounter > inRangeTime)
         {
-            Debug.Log("in range");
             state = states.Attack;
             attackCounter = attackTime;
             PerformAttack();

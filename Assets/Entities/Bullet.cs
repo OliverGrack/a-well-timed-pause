@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    private const int bulletSpeed = 10;
+    public float bulletSpeed;
     private Camera mainCamera;
     private DamageSource dmg;
 
@@ -18,7 +18,7 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = transform.position + transform.up * bulletSpeed * Time.deltaTime;
+        transform.position = transform.position + (transform.up * bulletSpeed * Time.deltaTime);
 
         // check if it should be destroyed
         Vector2 screenPos = mainCamera.WorldToScreenPoint(transform.position);
